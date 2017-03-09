@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kokémon</string>
+
+    <string name="about">About</string>
+    <string name="about_message">Matías Elorriaga, 2017</string>
+
+    <string name="done">Done</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+
+    <string name="pokemon_id">id: %1$d</string>
+    <string name="pokemon_name">name: %1$s</string>
+    <string name="pokemon_height">height: %1$d</string>
+    <string name="pokemon_weight">weight: %1$d</string>
+    <string name="pokemon_base_experience">base experience: %1$d</string>
+
+</resources>
