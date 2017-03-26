@@ -9,7 +9,6 @@ import android.support.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE
 import android.support.test.rule.ActivityTestRule
 import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.view.DetailsActivity
-import com.melorriaga.kokemon.view.MainActivity
 import io.appflate.restmock.RESTMockServer.whenGET
 import io.appflate.restmock.RequestsVerifier.verifyGET
 import io.appflate.restmock.utils.RequestMatchers.pathEndsWith
@@ -35,8 +34,8 @@ class DetailsActivityTest : BaseActivityTest() {
                 .thenReturnFile(200, "getPokemonDetails_200.json")
 
         val intent = Intent()
-        intent.putExtra(MainActivity.EXTRA_POKEMON_ID, 25)
-        intent.putExtra(MainActivity.EXTRA_POKEMON_NAME, "pikachu")
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_ID, 25)
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_NAME, "pikachu")
         detailsActivityTestRule.launchActivity(intent)
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())))
@@ -55,8 +54,8 @@ class DetailsActivityTest : BaseActivityTest() {
                 .thenReturnEmpty(404)
 
         val intent = Intent()
-        intent.putExtra(MainActivity.EXTRA_POKEMON_ID, 25)
-        intent.putExtra(MainActivity.EXTRA_POKEMON_NAME, "pikachu")
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_ID, 25)
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_NAME, "pikachu")
         detailsActivityTestRule.launchActivity(intent)
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())))
@@ -75,8 +74,8 @@ class DetailsActivityTest : BaseActivityTest() {
                 .thenReturnFile(200, "getPokemonDetails_200.json")
 
         val intent = Intent()
-        intent.putExtra(MainActivity.EXTRA_POKEMON_ID, 25)
-        intent.putExtra(MainActivity.EXTRA_POKEMON_NAME, "pikachu")
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_ID, 25)
+        intent.putExtra(DetailsActivity.EXTRA_POKEMON_NAME, "pikachu")
         detailsActivityTestRule.launchActivity(intent)
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())))

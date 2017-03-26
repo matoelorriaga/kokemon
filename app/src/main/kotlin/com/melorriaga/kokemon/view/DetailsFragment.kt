@@ -3,7 +3,6 @@ package com.melorriaga.kokemon.view
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
-import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
@@ -27,16 +26,6 @@ class DetailsFragment : BaseFragment<DetailsPresenter, DetailsView>(), DetailsVi
         val TAG = "DetailsFragment"
         val ARG_POKEMON_ID = "ARG_POKEMON_ID"
         val ARG_POKEMON_NAME = "ARG_POKEMON_NAME"
-
-        fun newInstance(pokemonId: Int, pokemonName: String): DetailsFragment {
-            val arguments = Bundle()
-            arguments.putInt(ARG_POKEMON_ID, pokemonId)
-            arguments.putString(ARG_POKEMON_NAME, pokemonName)
-
-            val fragment = DetailsFragment()
-            fragment.arguments = arguments
-            return fragment
-        }
     }
 
     @Inject
@@ -56,9 +45,8 @@ class DetailsFragment : BaseFragment<DetailsPresenter, DetailsView>(), DetailsVi
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_details, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
+            inflater.inflate(R.layout.fragment_details, container, false)
 
     // DetailsView
 

@@ -19,11 +19,6 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainPresenter, MainView>(), MainView {
 
-    companion object {
-        val EXTRA_POKEMON_ID = "EXTRA_POKEMON_ID"
-        val EXTRA_POKEMON_NAME = "EXTRA_POKEMON_NAME"
-    }
-
     @Inject
     lateinit var interactor: MainInteractor
 
@@ -64,8 +59,8 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), MainView {
     private fun initRecyclerView() {
         pokemonRecyclerViewAdapter = PokemonRecyclerViewAdapter { position, pokemonName ->
             startActivity(intentFor<DetailsActivity>(
-                    EXTRA_POKEMON_ID to position + 1,
-                    EXTRA_POKEMON_NAME to pokemonName
+                    DetailsActivity.EXTRA_POKEMON_ID to position + 1,
+                    DetailsActivity.EXTRA_POKEMON_NAME to pokemonName
             ))
         }
         recycler_view.apply {
