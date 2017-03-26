@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
+import android.view.MenuItem
 import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.extension.app
 import com.melorriaga.kokemon.extension.initToolbar
@@ -15,7 +16,7 @@ import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.view.adapter.PokemonRecyclerViewAdapter
 import com.melorriaga.kokemon.view.base.BaseRetainActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class MainActivity : BaseRetainActivity<MainPresenter, MainView>(), MainView {
@@ -59,10 +60,10 @@ class MainActivity : BaseRetainActivity<MainPresenter, MainView>(), MainView {
 
     private fun initRecyclerView() {
         pokemonRecyclerViewAdapter = PokemonRecyclerViewAdapter { position, pokemonName ->
-            startActivity(intentFor<DetailsActivity>(
+            startActivity<DetailsActivity>(
                     DetailsActivity.EXTRA_POKEMON_ID to position + 1,
                     DetailsActivity.EXTRA_POKEMON_NAME to pokemonName
-            ))
+            )
         }
         recycler_view.apply {
             adapter = pokemonRecyclerViewAdapter
@@ -73,6 +74,16 @@ class MainActivity : BaseRetainActivity<MainPresenter, MainView>(), MainView {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.types -> {
+                startActivity<TypesActivity>()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     // MainView
