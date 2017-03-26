@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.view
+package com.melorriaga.kokemon.view.main
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -13,8 +13,9 @@ import com.melorriaga.kokemon.interactor.MainInteractor
 import com.melorriaga.kokemon.presenter.MainPresenter
 import com.melorriaga.kokemon.presenter.MainPresenterImpl
 import com.melorriaga.kokemon.presenter.loader.PresenterFactory
-import com.melorriaga.kokemon.view.adapter.PokemonRecyclerViewAdapter
 import com.melorriaga.kokemon.view.base.BaseRetainActivity
+import com.melorriaga.kokemon.view.details.DetailsActivity
+import com.melorriaga.kokemon.view.types.TypesActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import javax.inject.Inject

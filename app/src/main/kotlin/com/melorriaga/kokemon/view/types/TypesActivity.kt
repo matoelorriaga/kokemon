@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.view
+package com.melorriaga.kokemon.view.types
 
 import android.os.Bundle
 import com.melorriaga.kokemon.R
@@ -6,7 +6,7 @@ import com.melorriaga.kokemon.extension.initToolbar
 import com.melorriaga.kokemon.view.base.BaseActivity
 import kotlinx.android.synthetic.main.template_toolbar.*
 
-class TypesActivity : BaseActivity(), TypesView {
+class TypesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

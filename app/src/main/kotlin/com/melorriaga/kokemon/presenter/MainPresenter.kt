@@ -1,7 +1,7 @@
 package com.melorriaga.kokemon.presenter
 
 import com.melorriaga.kokemon.presenter.base.BasePresenter
-import com.melorriaga.kokemon.view.MainView
+import com.melorriaga.kokemon.view.main.MainView
 
 interface MainPresenter : BasePresenter<MainView> {
 

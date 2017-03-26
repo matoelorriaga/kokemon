@@ -9,7 +9,7 @@ import android.support.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE
 import android.support.test.rule.ActivityTestRule
 import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.assertion.RecyclerViewItemCountAssertion
-import com.melorriaga.kokemon.view.MainActivity
+import com.melorriaga.kokemon.view.main.MainActivity
 import io.appflate.restmock.RESTMockServer.whenGET
 import io.appflate.restmock.RequestsVerifier.verifyGET
 import io.appflate.restmock.utils.RequestMatchers.pathEndsWith

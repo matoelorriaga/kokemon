@@ -2,7 +2,7 @@ package com.melorriaga.kokemon.presenter
 
 import com.melorriaga.kokemon.interactor.MainInteractor
 import com.melorriaga.kokemon.presenter.base.BasePresenterImpl
-import com.melorriaga.kokemon.view.MainView
+import com.melorriaga.kokemon.view.main.MainView
 
 class MainPresenterImpl(private val interactor: MainInteractor) :
         BasePresenterImpl<MainView>(), MainPresenter, MainInteractor.OnGetPokemonNamesListener {

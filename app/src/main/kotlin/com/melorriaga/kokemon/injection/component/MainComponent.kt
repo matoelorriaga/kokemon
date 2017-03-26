@@ -2,7 +2,7 @@ package com.melorriaga.kokemon.injection.component
 
 import com.melorriaga.kokemon.injection.module.MainModule
 import com.melorriaga.kokemon.injection.scope.ActivityScope
-import com.melorriaga.kokemon.view.MainActivity
+import com.melorriaga.kokemon.view.main.MainActivity
 import dagger.Subcomponent
 
 @ActivityScope

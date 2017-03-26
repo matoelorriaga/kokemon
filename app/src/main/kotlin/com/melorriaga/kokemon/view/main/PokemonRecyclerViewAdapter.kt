@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.view.adapter
+package com.melorriaga.kokemon.view.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

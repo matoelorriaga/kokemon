@@ -3,7 +3,7 @@ package com.melorriaga.kokemon.presenter
 import com.melorriaga.kokemon.interactor.DetailsInteractor
 import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.model.PokemonSprites
-import com.melorriaga.kokemon.view.DetailsView
+import com.melorriaga.kokemon.view.details.DetailsView
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.eq
 import org.hamcrest.Matchers.`is`

@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.view
+package com.melorriaga.kokemon.view.details
 
 import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.view.base.BaseView

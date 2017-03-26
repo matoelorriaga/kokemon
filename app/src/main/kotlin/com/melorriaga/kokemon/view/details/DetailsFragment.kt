@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.view
+package com.melorriaga.kokemon.view.details
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar

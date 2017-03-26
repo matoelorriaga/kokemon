@@ -1,7 +1,7 @@
 package com.melorriaga.kokemon.presenter
 
 import com.melorriaga.kokemon.interactor.MainInteractor
-import com.melorriaga.kokemon.view.MainView
+import com.melorriaga.kokemon.view.main.MainView
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import org.hamcrest.Matchers.`is`
 import org.junit.After

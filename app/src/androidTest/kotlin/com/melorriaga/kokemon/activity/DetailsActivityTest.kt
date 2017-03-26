@@ -8,7 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE
 import android.support.test.rule.ActivityTestRule
 import com.melorriaga.kokemon.R
-import com.melorriaga.kokemon.view.DetailsActivity
+import com.melorriaga.kokemon.view.details.DetailsActivity
 import io.appflate.restmock.RESTMockServer.whenGET
 import io.appflate.restmock.RequestsVerifier.verifyGET
 import io.appflate.restmock.utils.RequestMatchers.pathEndsWith

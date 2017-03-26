@@ -2,7 +2,7 @@ package com.melorriaga.kokemon.injection.component
 
 import com.melorriaga.kokemon.injection.module.DetailsModule
 import com.melorriaga.kokemon.injection.scope.FragmentScope
-import com.melorriaga.kokemon.view.DetailsFragment
+import com.melorriaga.kokemon.view.details.DetailsFragment
 import dagger.Subcomponent
 
 @FragmentScope
