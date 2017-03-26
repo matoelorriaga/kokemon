@@ -14,13 +14,13 @@ import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.presenter.DetailsPresenter
 import com.melorriaga.kokemon.presenter.DetailsPresenterImpl
 import com.melorriaga.kokemon.presenter.loader.PresenterFactory
-import com.melorriaga.kokemon.view.base.BaseFragment
+import com.melorriaga.kokemon.view.base.BaseRetainFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.fragment_details.*
 import javax.inject.Inject
 
-class DetailsFragment : BaseFragment<DetailsPresenter, DetailsView>(), DetailsView {
+class DetailsFragment : BaseRetainFragment<DetailsPresenter, DetailsView>(), DetailsView {
 
     companion object {
         val TAG = "DetailsFragment"

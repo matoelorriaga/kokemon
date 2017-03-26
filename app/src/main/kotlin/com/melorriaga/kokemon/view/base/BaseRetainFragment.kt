@@ -9,7 +9,7 @@ import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.presenter.loader.PresenterLoader
 import java.util.concurrent.atomic.AtomicBoolean
 
-abstract class BaseFragment<P: BasePresenter<V>, in V>
+abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     : Fragment(), BaseView, LoaderManager.LoaderCallbacks<P> {
 
     companion object {

@@ -1,12 +1,12 @@
 package com.melorriaga.kokemon.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.extension.initToolbar
+import com.melorriaga.kokemon.view.base.BaseActivity
 import org.jetbrains.anko.support.v4.withArguments
 
-class DetailsActivity : AppCompatActivity() {
+class DetailsActivity : BaseActivity() {
 
     companion object {
         val EXTRA_POKEMON_ID = "EXTRA_POKEMON_ID"
