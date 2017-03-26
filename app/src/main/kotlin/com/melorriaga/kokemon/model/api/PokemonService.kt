@@ -15,4 +15,7 @@ interface PokemonService {
     @GET("pokemon/{id}")
     fun getPokemonDetails(@Path("id") id: Int): Observable<Pokemon>
 
+    @GET("type")
+    fun getPokemonTypes(): Observable<APIResourceList>
+
 }

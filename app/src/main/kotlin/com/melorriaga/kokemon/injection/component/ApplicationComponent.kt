@@ -1,9 +1,6 @@
 package com.melorriaga.kokemon.injection.component
 
-import com.melorriaga.kokemon.injection.module.ApplicationModule
-import com.melorriaga.kokemon.injection.module.DataModule
-import com.melorriaga.kokemon.injection.module.DetailsModule
-import com.melorriaga.kokemon.injection.module.MainModule
+import com.melorriaga.kokemon.injection.module.*
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,5 +13,6 @@ interface ApplicationComponent {
 
     fun plus(module: MainModule): MainComponent
     fun plus(module: DetailsModule): DetailsComponent
+    fun plus(module: TypesModule): TypesComponent
 
 }

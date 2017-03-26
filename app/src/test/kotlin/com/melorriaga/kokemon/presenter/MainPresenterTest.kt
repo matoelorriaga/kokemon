@@ -53,6 +53,13 @@ class MainPresenterTest : BasePresenterTest() {
     }
 
     @Test
+    fun testOnStop() {
+        presenter.onStop()
+
+        verify(view, times(1)).hideLoadingIndicator()
+    }
+
+    @Test
     fun testOnPresenterDestroyed() {
         presenter.onPresenterDestroyed()
 

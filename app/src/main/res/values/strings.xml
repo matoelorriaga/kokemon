@@ -10,6 +10,8 @@
     <string name="error">Error</string>
     <string name="retry">Retry</string>
 
+    <string name="loading">Loading…</string>
+
     <string name="pokemon_id">id: %1$d</string>
     <string name="pokemon_name">name: %1$s</string>
     <string name="pokemon_height">height: %1$d</string>

@@ -3,6 +3,7 @@ package com.melorriaga.kokemon.view.details
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
@@ -45,7 +46,7 @@ class DetailsFragment : BaseRetainFragment<DetailsPresenter, DetailsView>(), Det
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_details, container, false)
 
     // DetailsView

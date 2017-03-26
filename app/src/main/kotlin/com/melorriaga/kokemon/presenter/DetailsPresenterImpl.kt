@@ -26,7 +26,7 @@ class DetailsPresenterImpl(private val interactor: DetailsInteractor) :
     }
 
     override fun onStop() {
-        // do nothing
+        view?.hideLoadingIndicator()
     }
 
     override fun onPresenterDestroyed() {

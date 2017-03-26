@@ -1,22 +1,23 @@
 package com.melorriaga.kokemon.presenter
 
-import com.melorriaga.kokemon.interactor.MainInteractor
+import com.melorriaga.kokemon.interactor.TypesInteractor
+import com.melorriaga.kokemon.model.Type
 import com.melorriaga.kokemon.presenter.base.BasePresenterImpl
-import com.melorriaga.kokemon.view.main.MainView
+import com.melorriaga.kokemon.view.types.TypesView
 
-class MainPresenterImpl(private val interactor: MainInteractor) :
-        BasePresenterImpl<MainView>(), MainPresenter, MainInteractor.OnGetPokemonNamesListener {
+class TypesPresenterImpl(private val interactor: TypesInteractor) :
+        BasePresenterImpl<TypesView>(), TypesPresenter, TypesInteractor.OnGetPokemonTypesListener {
 
-    private var pokemonNames = listOf<String>()
+    private var pokemonTypes = listOf<Type>()
 
     override fun onStart(firstStart: Boolean) {
         if (firstStart) {
-            getPokemonNames()
+            getPokemonTypes()
         } else {
             if (interactor.networkRequestInProgress) {
                 view?.showLoadingIndicator()
             }
-            view?.showPokemonNames(pokemonNames)
+            view?.showPokemonTypes(pokemonTypes)
         }
     }
 
@@ -28,19 +29,19 @@ class MainPresenterImpl(private val interactor: MainInteractor) :
         interactor.cancelNetworkRequest()
     }
 
-    // MainPresenter
+    // TypesPresenter
 
-    override fun getPokemonNames() {
+    override fun getPokemonTypes() {
         view?.showLoadingIndicator()
-        interactor.getPokemonNames(this)
+        interactor.getPokemonTypes(this)
     }
 
-    // OnGetPokemonNamesListener
+    // OnGetPokemonTypesListener
 
-    override fun onSuccess(pokemonNames: List<String>) {
-        this.pokemonNames = pokemonNames
+    override fun onSuccess(pokemonTypes: List<Type>) {
+        this.pokemonTypes = pokemonTypes
 
-        view?.showPokemonNames(pokemonNames)
+        view?.showPokemonTypes(pokemonTypes)
         view?.hideLoadingIndicator()
         view?.showDoneMessage()
     }
