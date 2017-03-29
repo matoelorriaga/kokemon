@@ -17,9 +17,9 @@ class MainInteractorImpl(private val pokemonService: PokemonService) : MainInter
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { it.results.map { it.name } }
-                .subscribe({ next ->
+                .subscribe({ pokemonNames ->
                     networkRequestInProgress = false
-                    listener.onSuccess(next)
+                    listener.onSuccess(pokemonNames)
                 }, { error ->
                     error.printStackTrace()
                     networkRequestInProgress = false

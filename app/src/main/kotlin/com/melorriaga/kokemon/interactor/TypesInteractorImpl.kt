@@ -23,9 +23,9 @@ class TypesInteractorImpl(private val pokemonService: PokemonService) : TypesInt
                         Type(typeId, it.name)
                     }
                 }
-                .subscribe({ next ->
+                .subscribe({ pokemonTypes ->
                     networkRequestInProgress = false
-                    listener.onSuccess(next)
+                    listener.onSuccess(pokemonTypes)
                 }, { error ->
                     error.printStackTrace()
                     networkRequestInProgress = false

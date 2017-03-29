@@ -16,9 +16,9 @@ class DetailsInteractorImpl(private val pokemonService: PokemonService) : Detail
         subscription = pokemonService.getPokemonDetails(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ next ->
+                .subscribe({ pokemon ->
                     networkRequestInProgress = false
-                    listener.onSuccess(next)
+                    listener.onSuccess(pokemon)
                 }, { error ->
                     error.printStackTrace()
                     networkRequestInProgress = false
