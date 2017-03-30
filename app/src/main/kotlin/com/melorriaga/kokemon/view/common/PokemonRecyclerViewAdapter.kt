@@ -1,15 +1,16 @@
-package com.melorriaga.kokemon.view.main
+package com.melorriaga.kokemon.view.common
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.melorriaga.kokemon.R
+import com.melorriaga.kokemon.model.Pokemon
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
-class PokemonRecyclerViewAdapter(val listener: (Int, String) -> Unit) : RecyclerView.Adapter<PokemonRecyclerViewAdapter.ViewHolder>() {
+class PokemonRecyclerViewAdapter(val listener: (Pokemon) -> Unit) : RecyclerView.Adapter<PokemonRecyclerViewAdapter.ViewHolder>() {
 
-    var pokemonNames = listOf<String>()
+    var pokemonList = listOf<Pokemon>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,17 +23,17 @@ class PokemonRecyclerViewAdapter(val listener: (Int, String) -> Unit) : Recycler
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val pokemonName = pokemonNames[position]
-        holder.bind(pokemonName, listener)
+        val pokemon = pokemonList[position]
+        holder.bind(pokemon, listener)
     }
 
-    override fun getItemCount() = pokemonNames.size
+    override fun getItemCount() = pokemonList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(pokemonName: String, listener: (Int, String) -> Unit) {
-            itemView.pokemon_name_text_view.text = pokemonName
-            itemView.setOnClickListener { listener(adapterPosition, pokemonName) }
+        fun bind(pokemon: Pokemon, listener: (Pokemon) -> Unit) {
+            itemView.pokemon_name_text_view.text = pokemon.name
+            itemView.setOnClickListener { listener(pokemon) }
         }
 
     }

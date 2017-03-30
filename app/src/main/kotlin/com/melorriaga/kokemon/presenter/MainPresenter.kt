@@ -5,6 +5,6 @@ import com.melorriaga.kokemon.view.main.MainView
 
 interface MainPresenter : BasePresenter<MainView> {
 
-    fun getPokemonNames()
+    fun getPokemonList()
 
 }

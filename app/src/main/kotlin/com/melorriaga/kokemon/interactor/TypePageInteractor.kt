@@ -3,16 +3,16 @@ package com.melorriaga.kokemon.interactor
 import com.melorriaga.kokemon.interactor.base.BaseInteractor
 import com.melorriaga.kokemon.model.Pokemon
 
-interface MainInteractor : BaseInteractor {
+interface TypePageInteractor : BaseInteractor {
 
-    interface OnGetPokemonListListener {
+    interface OnGetAllPokemonOfTypeListener {
         fun onSuccess(pokemonList: List<Pokemon>)
         fun onFailure()
     }
 
     var networkRequestInProgress: Boolean
 
-    fun getPokemonList(listener: OnGetPokemonListListener)
+    fun getAllPokemonOfType(typeId: Int, listener: OnGetAllPokemonOfTypeListener)
     fun cancelNetworkRequest()
 
 }

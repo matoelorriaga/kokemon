@@ -2,7 +2,7 @@ package com.melorriaga.kokemon.injection.component
 
 import com.melorriaga.kokemon.injection.module.DetailsModule
 import com.melorriaga.kokemon.injection.scope.FragmentScope
-import com.melorriaga.kokemon.view.details.DetailsFragment
+import com.melorriaga.kokemon.view.details.DetailsActivity
 import dagger.Subcomponent
 
 @FragmentScope
@@ -11,6 +11,6 @@ import dagger.Subcomponent
 ))
 interface DetailsComponent {
 
-    fun injectTo(fragment: DetailsFragment)
+    fun injectTo(activity: DetailsActivity)
 
 }

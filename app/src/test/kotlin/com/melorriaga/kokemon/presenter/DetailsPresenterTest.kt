@@ -2,7 +2,6 @@ package com.melorriaga.kokemon.presenter
 
 import com.melorriaga.kokemon.interactor.DetailsInteractor
 import com.melorriaga.kokemon.model.Pokemon
-import com.melorriaga.kokemon.model.PokemonSprites
 import com.melorriaga.kokemon.view.details.DetailsView
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.eq
@@ -27,9 +26,7 @@ class DetailsPresenterTest : BasePresenterTest() {
     lateinit var presenter: DetailsPresenterImpl
 
     val pokemonId = 1
-
-    val pokemonSprites = PokemonSprites("", "", "", "", "", "", "", "")
-    val pokemon = Pokemon(1, "bulbasaur", 7, 69, pokemonSprites, 64)
+    val pokemon = Pokemon(1, "bulbasaur")
 
     @Test
     fun testOnStart_firstStart() {

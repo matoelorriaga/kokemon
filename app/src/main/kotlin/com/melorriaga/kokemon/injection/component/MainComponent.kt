@@ -2,7 +2,7 @@ package com.melorriaga.kokemon.injection.component
 
 import com.melorriaga.kokemon.injection.module.MainModule
 import com.melorriaga.kokemon.injection.scope.ActivityScope
-import com.melorriaga.kokemon.view.main.MainActivity
+import com.melorriaga.kokemon.view.main.MainFragment
 import dagger.Subcomponent
 
 @ActivityScope
@@ -11,6 +11,6 @@ import dagger.Subcomponent
 ))
 interface MainComponent {
 
-    fun injectTo(activity: MainActivity)
+    fun injectTo(fragment: MainFragment)
 
 }

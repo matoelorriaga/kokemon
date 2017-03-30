@@ -6,21 +6,21 @@ import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class MainInteractorImpl(private val pokemonService: PokemonService) : MainInteractor {
+class TypePageInteractorImpl(private val pokemonService: PokemonService) : TypePageInteractor {
 
     private var subscription: Subscription? = null
 
     override var networkRequestInProgress = false
 
-    override fun getPokemonList(listener: MainInteractor.OnGetPokemonListListener) {
+    override fun getAllPokemonOfType(id: Int, listener: TypePageInteractor.OnGetAllPokemonOfTypeListener) {
         networkRequestInProgress = true
-        subscription = pokemonService.getPokemonList(150)
+        subscription = pokemonService.getPokemonType(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map {
-                    it.results.map {
-                        val pokemonId = it.url.split("/")[6].toInt()
-                        Pokemon(pokemonId, it.name)
+                    it.pokemon.map {
+                        val pokemonId = it.pokemon.url.split("/")[6].toInt()
+                        Pokemon(pokemonId, it.pokemon.name)
                     }
                 }
                 .subscribe({ pokemonList ->

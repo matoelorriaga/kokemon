@@ -1,6 +1,7 @@
 package com.melorriaga.kokemon.presenter
 
 import com.melorriaga.kokemon.interactor.MainInteractor
+import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.view.main.MainView
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import org.hamcrest.Matchers.`is`
@@ -28,7 +29,7 @@ class MainPresenterTest : BasePresenterTest() {
         presenter.onStart(true)
 
         verify(view, times(1)).showLoadingIndicator()
-        verify(interactor, times(1)).getPokemonNames(presenter)
+        verify(interactor, times(1)).getPokemonList(presenter)
     }
 
     @Test
@@ -39,7 +40,7 @@ class MainPresenterTest : BasePresenterTest() {
 
         verify(interactor, times(1)).networkRequestInProgress
         verify(view, times(1)).showLoadingIndicator()
-        verify(view, times(1)).showPokemonNames(anyList())
+        verify(view, times(1)).showPokemonList(anyList())
     }
 
     @Test
@@ -49,7 +50,7 @@ class MainPresenterTest : BasePresenterTest() {
         presenter.onStart(false)
 
         verify(interactor, times(1)).networkRequestInProgress
-        verify(view, times(1)).showPokemonNames(anyList())
+        verify(view, times(1)).showPokemonList(anyList())
     }
 
     @Test
@@ -67,29 +68,33 @@ class MainPresenterTest : BasePresenterTest() {
     }
 
     @Test
-    fun testGetPokemonNames() {
-        presenter.getPokemonNames()
+    fun testGetPokemonList() {
+        presenter.getPokemonList()
 
         verify(view, times(1)).showLoadingIndicator()
-        verify(interactor, times(1)).getPokemonNames(presenter)
+        verify(interactor, times(1)).getPokemonList(presenter)
     }
 
     @Test
-    fun testOnGetPokemonNamesListener_onSuccess() {
-        val pokemonNames = asList("bulbasaur", "charmander", "squirtle")
-        val captor = argumentCaptor<List<String>>()
+    fun testOnGetPokemonListListener_onSuccess() {
+        val pokemonList = asList(
+                Pokemon(1, "bulbasaur"),
+                Pokemon(2, "charmander"),
+                Pokemon(3, "squirtle")
+        )
+        val captor = argumentCaptor<List<Pokemon>>()
 
-        presenter.onSuccess(pokemonNames)
+        presenter.onSuccess(pokemonList)
 
-        verify(view, times(1)).showPokemonNames(captor.capture())
+        verify(view, times(1)).showPokemonList(captor.capture())
         verify(view, times(1)).hideLoadingIndicator()
         verify(view, times(1)).showDoneMessage()
 
-        assertThat(captor.firstValue, `is`(pokemonNames))
+        assertThat(captor.firstValue, `is`(pokemonList))
     }
 
     @Test
-    fun testOnGetPokemonNamesListener_onFailure() {
+    fun testOnGetPokemonListListener_onFailure() {
         presenter.onFailure()
 
         verify(view, times(1)).hideLoadingIndicator()
