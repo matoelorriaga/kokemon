@@ -25,7 +25,7 @@ class MainPresenterTest : BasePresenterTest() {
     lateinit var presenter: MainPresenterImpl
 
     @Test
-    fun testOnStart_firstTime() {
+    fun testOnStart_firstStart() {
         presenter.onStart(true)
 
         verify(view, times(1)).showLoadingIndicator()

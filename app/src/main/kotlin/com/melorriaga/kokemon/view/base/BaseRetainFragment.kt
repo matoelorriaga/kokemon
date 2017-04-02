@@ -23,7 +23,7 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
      * True if this is the first time the activity is created.
      * Used to avoid unnecessary calls after activity recreation.
      */
-    private var firstTime = true
+    private var firstStart = true
 
     /**
      * True if presenter is null (not loaded yet) when [onStart] is called.
@@ -39,10 +39,10 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-            firstTime = true
+            firstStart = true
             loaderId = BaseRetainActivity.LOADER_ID_VALUE.getAndIncrement()
         } else {
-            firstTime = savedInstanceState.getBoolean(BaseRetainActivity.FIRST_TIME)
+            firstStart = savedInstanceState.getBoolean(BaseRetainActivity.FIRST_START)
             loaderId = savedInstanceState.getInt(BaseRetainActivity.LOADER_ID_KEY)
         }
 
@@ -67,9 +67,9 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
 
     private fun doStart() {
         presenter?.onViewAttached(this as V)
-        presenter?.onStart(firstTime)
+        presenter?.onStart(firstStart)
 
-        firstTime = false
+        firstStart = false
     }
 
     override fun onStop() {
@@ -84,7 +84,7 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        outState.putBoolean(BaseRetainActivity.FIRST_TIME, firstTime)
+        outState.putBoolean(BaseRetainActivity.FIRST_START, firstStart)
         outState.putInt(BaseRetainActivity.LOADER_ID_KEY, loaderId)
     }
 

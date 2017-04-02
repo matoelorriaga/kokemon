@@ -13,7 +13,7 @@ abstract class BaseRetainActivity<P: BasePresenter<V>, in V>
     : BaseActivity(), BaseView, LoaderManager.LoaderCallbacks<P> {
 
     companion object {
-        val FIRST_TIME = "FIRST_TIME"
+        val FIRST_START = "FIRST_START"
         val LOADER_ID_KEY = "LOADER_ID_KEY"
         val LOADER_ID_VALUE = AtomicInteger(0)
     }
@@ -29,7 +29,7 @@ abstract class BaseRetainActivity<P: BasePresenter<V>, in V>
      * True if this is the first time the activity is created.
      * Used to avoid unnecessary calls after activity recreation.
      */
-    private var firstTime = true
+    private var firstStart = true
 
     /**
      * True if presenter is null (not loaded yet) when [onStart] is called.
@@ -45,10 +45,10 @@ abstract class BaseRetainActivity<P: BasePresenter<V>, in V>
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-            firstTime = true
+            firstStart = true
             loaderId = LOADER_ID_VALUE.getAndIncrement()
         } else {
-            firstTime = savedInstanceState.getBoolean(FIRST_TIME)
+            firstStart = savedInstanceState.getBoolean(FIRST_START)
             loaderId = savedInstanceState.getInt(LOADER_ID_KEY)
         }
 
@@ -69,9 +69,9 @@ abstract class BaseRetainActivity<P: BasePresenter<V>, in V>
 
     private fun doStart() {
         presenter?.onViewAttached(this as V)
-        presenter?.onStart(firstTime)
+        presenter?.onStart(firstStart)
 
-        firstTime = false
+        firstStart = false
     }
 
     override fun onStop() {
@@ -86,7 +86,7 @@ abstract class BaseRetainActivity<P: BasePresenter<V>, in V>
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        outState.putBoolean(FIRST_TIME, firstTime)
+        outState.putBoolean(FIRST_START, firstStart)
         outState.putInt(LOADER_ID_KEY, loaderId)
     }
 
