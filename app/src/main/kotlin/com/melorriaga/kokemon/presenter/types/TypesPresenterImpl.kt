@@ -1,6 +1,6 @@
-package com.melorriaga.kokemon.presenter
+package com.melorriaga.kokemon.presenter.types
 
-import com.melorriaga.kokemon.interactor.TypesInteractor
+import com.melorriaga.kokemon.interactor.types.TypesInteractor
 import com.melorriaga.kokemon.model.Type
 import com.melorriaga.kokemon.presenter.base.BasePresenterImpl
 import com.melorriaga.kokemon.view.types.TypesView

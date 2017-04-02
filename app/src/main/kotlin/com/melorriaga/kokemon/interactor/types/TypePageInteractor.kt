@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.interactor
+package com.melorriaga.kokemon.interactor.types
 
 import com.melorriaga.kokemon.interactor.base.BaseInteractor
 import com.melorriaga.kokemon.model.Pokemon
@@ -12,7 +12,7 @@ interface TypePageInteractor : BaseInteractor {
 
     var networkRequestInProgress: Boolean
 
-    fun getAllPokemonOfType(typeId: Int, listener: OnGetAllPokemonOfTypeListener)
+    fun getAllPokemonOfType(id: Int, listener: OnGetAllPokemonOfTypeListener)
     fun cancelNetworkRequest()
 
 }

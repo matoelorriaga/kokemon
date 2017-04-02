@@ -7,10 +7,10 @@ import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.extension.app
 import com.melorriaga.kokemon.extension.initToolbar
 import com.melorriaga.kokemon.injection.module.DetailsModule
-import com.melorriaga.kokemon.interactor.DetailsInteractor
+import com.melorriaga.kokemon.interactor.details.DetailsInteractor
 import com.melorriaga.kokemon.model.Pokemon
-import com.melorriaga.kokemon.presenter.DetailsPresenter
-import com.melorriaga.kokemon.presenter.DetailsPresenterImpl
+import com.melorriaga.kokemon.presenter.details.DetailsPresenter
+import com.melorriaga.kokemon.presenter.details.DetailsPresenterImpl
 import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.view.base.BaseRetainActivity
 import com.squareup.picasso.Picasso

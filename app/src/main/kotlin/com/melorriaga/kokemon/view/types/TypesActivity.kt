@@ -8,10 +8,10 @@ import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.extension.app
 import com.melorriaga.kokemon.extension.initToolbar
 import com.melorriaga.kokemon.injection.module.TypesModule
-import com.melorriaga.kokemon.interactor.TypesInteractor
+import com.melorriaga.kokemon.interactor.types.TypesInteractor
 import com.melorriaga.kokemon.model.Type
-import com.melorriaga.kokemon.presenter.TypesPresenter
-import com.melorriaga.kokemon.presenter.TypesPresenterImpl
+import com.melorriaga.kokemon.presenter.types.TypesPresenter
+import com.melorriaga.kokemon.presenter.types.TypesPresenterImpl
 import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.view.base.BaseRetainActivity
 import kotlinx.android.synthetic.main.activity_types.*

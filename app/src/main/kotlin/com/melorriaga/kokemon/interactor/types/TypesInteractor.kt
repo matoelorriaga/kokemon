@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.interactor
+package com.melorriaga.kokemon.interactor.types
 
 import com.melorriaga.kokemon.interactor.base.BaseInteractor
 import com.melorriaga.kokemon.model.Type

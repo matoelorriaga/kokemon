@@ -1,6 +1,6 @@
-package com.melorriaga.kokemon.presenter
+package com.melorriaga.kokemon.presenter.main
 
-import com.melorriaga.kokemon.interactor.MainInteractor
+import com.melorriaga.kokemon.interactor.main.MainInteractor
 import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.presenter.base.BasePresenterImpl
 import com.melorriaga.kokemon.view.main.MainView

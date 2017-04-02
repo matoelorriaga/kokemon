@@ -1,24 +1,31 @@
-package com.melorriaga.kokemon.interactor
+package com.melorriaga.kokemon.interactor.types
 
+import com.melorriaga.kokemon.model.Type
 import com.melorriaga.kokemon.model.api.PokemonService
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class DetailsInteractorImpl(private val pokemonService: PokemonService) : DetailsInteractor {
+class TypesInteractorImpl(private val pokemonService: PokemonService) : TypesInteractor {
 
     private var subscription: Subscription? = null
 
     override var networkRequestInProgress = false
 
-    override fun getPokemonDetails(id: Int, listener: DetailsInteractor.OnGetPokemonDetailsListener) {
+    override fun getPokemonTypes(listener: TypesInteractor.OnGetPokemonTypesListener) {
         networkRequestInProgress = true
-        subscription = pokemonService.getPokemonDetails(id)
+        subscription = pokemonService.getPokemonTypes()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pokemon ->
+                .map {
+                    it.results.map {
+                        val typeId = it.url.split("/")[6].toInt()
+                        Type(typeId, it.name)
+                    }
+                }
+                .subscribe({ pokemonTypes ->
                     networkRequestInProgress = false
-                    listener.onSuccess(pokemon)
+                    listener.onSuccess(pokemonTypes)
                 }, { error ->
                     error.printStackTrace()
                     networkRequestInProgress = false

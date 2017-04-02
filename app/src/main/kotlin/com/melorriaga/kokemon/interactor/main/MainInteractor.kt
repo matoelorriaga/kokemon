@@ -1,4 +1,4 @@
-package com.melorriaga.kokemon.interactor
+package com.melorriaga.kokemon.interactor.main
 
 import com.melorriaga.kokemon.interactor.base.BaseInteractor
 import com.melorriaga.kokemon.model.Pokemon

@@ -1,7 +1,8 @@
 package com.melorriaga.kokemon.presenter
 
-import com.melorriaga.kokemon.interactor.MainInteractor
+import com.melorriaga.kokemon.interactor.main.MainInteractor
 import com.melorriaga.kokemon.model.Pokemon
+import com.melorriaga.kokemon.presenter.main.MainPresenterImpl
 import com.melorriaga.kokemon.view.main.MainView
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import org.hamcrest.Matchers.`is`

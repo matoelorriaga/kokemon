@@ -11,10 +11,10 @@ import android.view.ViewGroup
 import com.melorriaga.kokemon.R
 import com.melorriaga.kokemon.extension.app
 import com.melorriaga.kokemon.injection.module.MainModule
-import com.melorriaga.kokemon.interactor.MainInteractor
+import com.melorriaga.kokemon.interactor.main.MainInteractor
 import com.melorriaga.kokemon.model.Pokemon
-import com.melorriaga.kokemon.presenter.MainPresenter
-import com.melorriaga.kokemon.presenter.MainPresenterImpl
+import com.melorriaga.kokemon.presenter.main.MainPresenter
+import com.melorriaga.kokemon.presenter.main.MainPresenterImpl
 import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.view.base.BaseRetainFragment
 import com.melorriaga.kokemon.view.common.PokemonRecyclerViewAdapter

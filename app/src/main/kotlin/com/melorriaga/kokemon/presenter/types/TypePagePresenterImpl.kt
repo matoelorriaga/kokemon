@@ -1,6 +1,6 @@
-package com.melorriaga.kokemon.presenter
+package com.melorriaga.kokemon.presenter.types
 
-import com.melorriaga.kokemon.interactor.TypePageInteractor
+import com.melorriaga.kokemon.interactor.types.TypePageInteractor
 import com.melorriaga.kokemon.model.Pokemon
 import com.melorriaga.kokemon.presenter.base.BasePresenterImpl
 import com.melorriaga.kokemon.view.types.TypePageView

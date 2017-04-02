@@ -65,6 +65,7 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
     private fun doStart() {
         presenter?.onViewAttached(this as V)
         presenter?.onStart(firstStart)
