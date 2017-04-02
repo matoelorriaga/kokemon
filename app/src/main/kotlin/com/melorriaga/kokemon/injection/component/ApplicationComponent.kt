@@ -14,5 +14,6 @@ interface ApplicationComponent {
     fun plus(module: MainModule): MainComponent
     fun plus(module: DetailsModule): DetailsComponent
     fun plus(module: TypesModule): TypesComponent
+    fun plus(module: TypePageModule): TypePageComponent
 
 }

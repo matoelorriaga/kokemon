@@ -1,5 +1,6 @@
 package com.melorriaga.kokemon.injection.module
 
+import com.melorriaga.kokemon.injection.scope.ActivityScope
 import com.melorriaga.kokemon.injection.scope.FragmentScope
 import com.melorriaga.kokemon.interactor.DetailsInteractor
 import com.melorriaga.kokemon.interactor.DetailsInteractorImpl
@@ -11,7 +12,7 @@ import dagger.Provides
 class DetailsModule {
 
     @Provides
-    @FragmentScope
+    @ActivityScope
     fun provideDetailsInteractor(pokemonService: PokemonService): DetailsInteractor {
         return DetailsInteractorImpl(pokemonService)
     }

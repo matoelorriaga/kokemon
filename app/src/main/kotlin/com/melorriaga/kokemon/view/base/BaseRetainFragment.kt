@@ -12,12 +12,12 @@ import java.util.concurrent.atomic.AtomicBoolean
 abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     : Fragment(), BaseView, LoaderManager.LoaderCallbacks<P> {
 
-    companion object {
-        val FIRST_TIME = "FIRST_TIME"
-        val LOADER_ID = 1
-    }
-
     protected var presenter: P? = null
+
+    /**
+     * Unique identifier for the [Loader], persisted across configuration changes.
+     */
+    private var loaderId = 0
 
     /**
      * True if this is the first time the activity is created.
@@ -38,8 +38,12 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        savedInstanceState?.let {
-            firstTime = it.getBoolean(FIRST_TIME)
+        if (savedInstanceState == null) {
+            firstTime = true
+            loaderId = BaseRetainActivity.LOADER_ID_VALUE.getAndIncrement()
+        } else {
+            firstTime = savedInstanceState.getBoolean(BaseRetainActivity.FIRST_TIME)
+            loaderId = savedInstanceState.getInt(BaseRetainActivity.LOADER_ID_KEY)
         }
 
         injectDependencies()
@@ -48,7 +52,7 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        activity.supportLoaderManager.initLoader(LOADER_ID, Bundle.EMPTY, this).startLoading()
+        activity.supportLoaderManager.initLoader(loaderId, Bundle.EMPTY, this).startLoading()
     }
 
     override fun onStart() {
@@ -80,7 +84,8 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        outState.putBoolean(FIRST_TIME, firstTime)
+        outState.putBoolean(BaseRetainActivity.FIRST_TIME, firstTime)
+        outState.putInt(BaseRetainActivity.LOADER_ID_KEY, loaderId)
     }
 
     // LoaderCallbacks
