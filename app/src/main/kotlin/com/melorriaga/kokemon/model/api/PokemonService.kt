@@ -6,20 +6,20 @@ import com.melorriaga.kokemon.model.Type
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import rx.Observable
+import rx.Single
 
 interface PokemonService {
 
     @GET("pokemon")
-    fun getPokemonList(@Query("limit") limit: Int): Observable<APIResourceList>
+    fun getPokemonList(@Query("limit") limit: Int): Single<APIResourceList>
 
     @GET("pokemon/{id}")
-    fun getPokemonDetails(@Path("id") id: Int): Observable<Pokemon>
+    fun getPokemonDetails(@Path("id") id: Int): Single<Pokemon>
 
     @GET("type")
-    fun getPokemonTypes(): Observable<APIResourceList>
+    fun getPokemonTypes(): Single<APIResourceList>
 
     @GET("type/{id}")
-    fun getPokemonType(@Path("id") id: Int): Observable<Type>
+    fun getPokemonType(@Path("id") id: Int): Single<Type>
 
 }
