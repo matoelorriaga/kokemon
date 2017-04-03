@@ -1,11 +1,11 @@
 package com.melorriaga.kokemon.presenter
 
-import com.melorriaga.kokemon.interactor.main.MainInteractor
-import com.melorriaga.kokemon.model.Pokemon
-import com.melorriaga.kokemon.presenter.main.MainPresenterImpl
-import com.melorriaga.kokemon.view.main.MainView
+import com.melorriaga.kokemon.interactor.types.TypesInteractor
+import com.melorriaga.kokemon.model.Type
+import com.melorriaga.kokemon.presenter.types.TypesPresenterImpl
+import com.melorriaga.kokemon.view.types.TypesView
 import com.nhaarman.mockito_kotlin.argumentCaptor
-import org.hamcrest.Matchers.`is`
+import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Test
@@ -13,23 +13,23 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.*
 
-class MainPresenterTest : BasePresenterTest() {
+class TypesPresenterTest : BasePresenterTest() {
 
     @Mock
-    lateinit var view: MainView
+    lateinit var view: TypesView
 
     @Mock
-    lateinit var interactor: MainInteractor
+    lateinit var interactor: TypesInteractor
 
     @InjectMocks
-    lateinit var presenter: MainPresenterImpl
+    lateinit var presenter: TypesPresenterImpl
 
     @Test
     fun testOnStart_firstStart() {
         presenter.onStart(true)
 
         verify(view, times(1)).showLoadingIndicator()
-        verify(interactor, times(1)).getPokemonList(presenter)
+        verify(interactor, times(1)).getPokemonTypes(presenter)
     }
 
     @Test
@@ -40,7 +40,7 @@ class MainPresenterTest : BasePresenterTest() {
 
         verify(interactor, times(1)).networkRequestInProgress
         verify(view, times(1)).showLoadingIndicator()
-        verify(view, times(1)).showPokemonList(anyList())
+        verify(view, times(1)).showPokemonTypes(anyList())
     }
 
     @Test
@@ -50,7 +50,7 @@ class MainPresenterTest : BasePresenterTest() {
         presenter.onStart(false)
 
         verify(interactor, times(1)).networkRequestInProgress
-        verify(view, times(1)).showPokemonList(anyList())
+        verify(view, times(1)).showPokemonTypes(anyList())
     }
 
     @Test
@@ -68,33 +68,33 @@ class MainPresenterTest : BasePresenterTest() {
     }
 
     @Test
-    fun testGetPokemonList() {
-        presenter.getPokemonList()
+    fun testGetPokemonTypes() {
+        presenter.getPokemonTypes()
 
         verify(view, times(1)).showLoadingIndicator()
-        verify(interactor, times(1)).getPokemonList(presenter)
+        verify(interactor, times(1)).getPokemonTypes(presenter)
     }
 
     @Test
-    fun testOnGetPokemonListListener_onSuccess() {
-        val pokemonList = listOf(
-                Pokemon(1, "bulbasaur"),
-                Pokemon(2, "charmander"),
-                Pokemon(3, "squirtle")
+    fun testOnGetPokemonTypesListener_onSuccess() {
+        val pokemonTypes = listOf(
+                Type(1, "normal"),
+                Type(2, "fighting"),
+                Type(3, "flying")
         )
-        val captor = argumentCaptor<List<Pokemon>>()
+        val captor = argumentCaptor<List<Type>>()
 
-        presenter.onSuccess(pokemonList)
+        presenter.onSuccess(pokemonTypes)
 
-        verify(view, times(1)).showPokemonList(captor.capture())
+        verify(view, times(1)).showPokemonTypes(captor.capture())
         verify(view, times(1)).hideLoadingIndicator()
         verify(view, times(1)).showDoneMessage()
 
-        assertThat(captor.firstValue, `is`(pokemonList))
+        assertThat(captor.firstValue, `is`(pokemonTypes))
     }
 
     @Test
-    fun testOnGetPokemonListListener_onFailure() {
+    fun testOnGetPokemonTypesListener_onFailure() {
         presenter.onFailure()
 
         verify(view, times(1)).hideLoadingIndicator()
