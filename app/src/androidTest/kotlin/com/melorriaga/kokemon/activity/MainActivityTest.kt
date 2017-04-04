@@ -28,10 +28,10 @@ class MainActivityTest : BaseActivityTest() {
     )
 
     @Test
-    fun testShowPokemonNames_success() {
+    fun testShowPokemonList_success() {
         whenGET(pathEndsWith("pokemon?limit=150"))
                 .delay(TimeUnit.SECONDS, 1)
-                .thenReturnFile(200, "getPokemonNames_200.json")
+                .thenReturnFile(200, "getPokemonList_200.json")
 
         val intent = Intent()
         mainActivityTestRule.launchActivity(intent)
@@ -43,7 +43,7 @@ class MainActivityTest : BaseActivityTest() {
     }
 
     @Test
-    fun testShowPokemonNames_error() {
+    fun testShowPokemonList_error() {
         whenGET(pathEndsWith("pokemon?limit=150"))
                 .delay(TimeUnit.SECONDS, 1)
                 .thenReturnEmpty(404)
@@ -58,12 +58,12 @@ class MainActivityTest : BaseActivityTest() {
     }
 
     @Test
-    fun testShowPokemonNames_error_retry() {
+    fun testShowPokemonList_error_retry() {
         whenGET(pathEndsWith("pokemon?limit=150"))
                 .delay(TimeUnit.SECONDS, 1)
                 .thenReturnEmpty(404)
                 .delay(TimeUnit.SECONDS, 1)
-                .thenReturnFile(200, "getPokemonNames_200.json")
+                .thenReturnFile(200, "getPokemonList_200.json")
 
         val intent = Intent()
         mainActivityTestRule.launchActivity(intent)
