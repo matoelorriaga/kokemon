@@ -20,8 +20,8 @@ abstract class BaseRetainFragment<P: BasePresenter<V>, in V>
     private var loaderId = 0
 
     /**
-     * True if this is the first time the activity is created.
-     * Used to avoid unnecessary calls after activity recreation.
+     * True if this is the first time the fragment is created.
+     * Used to avoid unnecessary calls after fragment recreation.
      */
     private var firstStart = true
 
