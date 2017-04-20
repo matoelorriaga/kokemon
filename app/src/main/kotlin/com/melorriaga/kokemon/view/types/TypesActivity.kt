@@ -2,6 +2,7 @@ package com.melorriaga.kokemon.view.types
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.support.design.widget.TabLayout.MODE_SCROLLABLE
 import com.melorriaga.kokemon.R
@@ -10,9 +11,9 @@ import com.melorriaga.kokemon.extension.initToolbar
 import com.melorriaga.kokemon.injection.module.TypesModule
 import com.melorriaga.kokemon.interactor.types.TypesInteractor
 import com.melorriaga.kokemon.model.Type
+import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.presenter.types.TypesPresenter
 import com.melorriaga.kokemon.presenter.types.TypesPresenterImpl
-import com.melorriaga.kokemon.presenter.loader.PresenterFactory
 import com.melorriaga.kokemon.view.base.BaseRetainActivity
 import kotlinx.android.synthetic.main.activity_types.*
 import kotlinx.android.synthetic.main.template_tab_layout.*
@@ -106,6 +107,26 @@ class TypesActivity : BaseRetainActivity<TypesPresenter, TypesView>(), TypesView
                     presenter?.getPokemonTypes()
                 }
                 .show()
+    }
+
+    // https://github.com/matoelorriaga/kokemon/issues/1
+
+    private var selectedTabPosition: Int? = null
+
+    override fun onStop() {
+        selectedTabPosition = tab_layout.selectedTabPosition
+
+        super.onStop()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        selectedTabPosition?.let {
+            Handler().post {
+                tab_layout.getTabAt(it)?.select()
+            }
+        }
     }
 
 }
