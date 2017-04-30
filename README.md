@@ -12,8 +12,8 @@ compile "com.android.support:support-v4:25.3.1"
 compile "com.android.support:support-annotations:25.3.1"
 
 // Kotlin
-compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.1"
-compile "org.jetbrains.kotlin:kotlin-reflect:1.1.1"
+compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.2-2"
+compile "org.jetbrains.kotlin:kotlin-reflect:1.1.2-2"
 
 // Anko
 compile "org.jetbrains.anko:anko-sdk15:0.10.0-beta-2"
@@ -31,8 +31,8 @@ kapt "com.google.dagger:dagger-compiler:2.10"
 compile "com.google.code.gson:gson:2.8.0"
 
 // OkHttp
-compile "com.squareup.okhttp3:okhttp:3.6.0"
-compile "com.squareup.okhttp3:logging-interceptor:3.6.0"
+compile "com.squareup.okhttp3:okhttp:3.7.0"
+compile "com.squareup.okhttp3:logging-interceptor:3.7.0"
 
 // Retrofit
 compile "com.squareup.retrofit2:retrofit:2.2.0"
@@ -60,8 +60,8 @@ testCompile "com.nhaarman:mockito-kotlin:1.4.0"
 testCompile "org.hamcrest:hamcrest-junit:2.0.0.0"
 
 // Kotlin Test Support
-testCompile "org.jetbrains.kotlin:kotlin-test:1.1.1"
-testCompile "org.jetbrains.kotlin:kotlin-test-junit:1.1.1"
+testCompile "org.jetbrains.kotlin:kotlin-test:1.1.2-2"
+testCompile "org.jetbrains.kotlin:kotlin-test-junit:1.1.2-2"
 
 // Espresso
 androidTestCompile "com.android.support.test.espresso:espresso-core:2.2.2"
